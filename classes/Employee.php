@@ -88,4 +88,14 @@ class Employee extends User
 	{
 		$this->salary = $salary;
 	}
+
+	public function increaseRevenue($value)
+    {
+        $this->salary = $this->salary + $value;
+    }
+
+    public function decreaseRevenue($value)
+    {
+        $this->salary = $this->salary - $value;
+    }
 }

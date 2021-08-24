@@ -50,15 +50,25 @@ class Student extends User{
 //
 class Student extends User
 {
-	private $scolarship;
+	private $scholarship;
 
-	public function getScolarship()
+	public function getScholarship()
 	{
-		return $this->scolarship;
+		return $this->scholarship;
 	}
 
-	public function setScolarship($scolarship)
+	public function setScholarship($scholarship)
 	{
-		$this->scolarship = $scolarship;
+		$this->scholarship = $scholarship;
 	}
+
+	public function increaseRevenue($value)
+    {
+        $this->scholarship = $this->scholarship + $value;
+    }
+
+    public function decreaseRevenue($value)
+    {
+        $this->scholarship = $this->scholarship - $value;
+    }
 }

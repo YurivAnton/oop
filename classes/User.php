@@ -144,4 +144,8 @@ abstract class User
 	{
 		$this->name = $name;
 	}
+
+	abstract public function increaseRevenue($value);
+
+	abstract public function decreaseRevenue($value);
 }

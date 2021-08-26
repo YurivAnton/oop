@@ -223,10 +223,58 @@ echo 'pryvit '.$user->getName().' tobi '.$user->getAge().' rokiv!';
  */
 
 //40
-//
+/*
 require_once 'classes/iUser.php';
 require_once 'classes/iEmployee.php';
 require_once 'classes/Employee.php';
-                                            $employee = new Employee();                 $employee->setName('anton');                $employee->setAge(35);
+
+$employee = new Employee();
+$employee->setName('anton');
+$employee->setAge(35);
 $employee->setSalary(2500);
-                                            echo 'pracivnyk '.$employee->getName().' maje '.$employee->getAge().' i zarplatu '.$employee->getSalary();
+
+echo 'pracivnyk '.$employee->getName().' maje '.$employee->getAge().' i zarplatu '.$employee->getSalary();
+*/
+
+//41
+//
+require_once 'classes/iFigure3d.php';
+require_once 'classes/iFigure.php';
+require_once 'classes/Cube.php';
+require_once 'classes/Rectangle.php';
+
+$cube1 = new Cube(1);
+$cube2 = new Cube(2);
+$cube3 = new Cube(3);
+$cube4 = new Cube(4);
+
+$rectangle1 = new Rectangle(1, 2);
+$rectangle2 = new Rectangle(3, 4);
+$rectangle3 = new Rectangle(5, 6);
+$rectangle4 = new Rectangle(7, 8);
+$rectangle5 = new Rectangle(9, 10);
+
+$arr = [$cube1, $cube2, $cube3, $cube4, $rectangle1, $rectangle2, $rectangle3, $rectangle4, $rectangle5];
+shuffle($arr);
+
+foreach($arr as $elem)
+{
+    if($elem instanceof iFigure)
+    {
+        echo $elem->getSquare().'<br>';
+    }
+}
+echo '<br>';
+
+foreach ($arr as $elem)
+{
+    if($elem instanceof iFigure)
+    {
+        echo 'площа фігури = '.$elem->getSquare().'<br>';
+    }
+    if($elem instanceof iFigure3d)
+    {
+        echo 'обʼєм фігури = '.$elem->getVolume().'<br>';
+    }
+
+}

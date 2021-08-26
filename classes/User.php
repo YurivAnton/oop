@@ -130,7 +130,7 @@ $user2 = new User('asd');
 echo User::getCount();
  */
 //35
-//
+/*
 abstract class User
 {
 	private $name;
@@ -148,4 +148,58 @@ abstract class User
 	abstract public function increaseRevenue($value);
 
 	abstract public function decreaseRevenue($value);
+}
+ */
+
+//38
+/*
+class User implements iUser
+{
+	private $name;
+	private $age;
+
+	public function setName($name)
+	{
+		$this->name = $name;
+	}
+
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	public function setAge($age)
+	{
+		$this->age = $age;
+	}
+
+	public function getAge()
+	{
+		return $this->age;
+	}	
+}
+ */
+
+//39
+//
+class User implements iUser
+{
+	private $name;
+	private $age;
+
+	public function __construct($name, $age)
+	{
+		$this->name = $name;
+		$this->age = $age;
+	}
+
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	public function getAge()
+	{
+		return $this->age;
+	}
 }

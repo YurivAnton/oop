@@ -124,11 +124,12 @@ foreach($arr as $elem)
 {
 	echo $elem->name.' class - '.get_class($elem);
 	echo '<br>';
-}*/
+}
+*/
 
 
 //35
-//
+/*
 require_once 'classes/User.php';
 require_once 'classes/Employee.php';
 require_once 'classes/Student.php';
@@ -165,3 +166,67 @@ echo $rectangle->getSquare();
 echo '<br>';
 echo $rectangle->getPerimeter();
 echo $rectangle->getSquarePerimeterSum();
+ */
+
+//36
+/*
+require_once 'classes/iFigure.php';
+require_once 'classes/Disk.php';
+
+$disk = new Disk(10);
+echo $disk->getSquare();
+echo '<br>';
+echo $disk->getPerimeter();
+ */
+
+//37
+/*
+require_once 'classes/iFigure.php';
+require_once 'classes/FigureCollection.php';
+require_once 'classes/Disk.php';
+require_once 'classes/Figure.php';
+
+$figureCollection = new FigureCollection();
+$figureCollection->addFigure(new Disk(10));
+$figureCollection->addFigure(new Disk(10));
+
+echo $figureCollection->getTotalSquare();
+echo '<br>';
+echo $figureCollection->getTotalPerimeter();
+ */
+
+//38
+/*
+require_once 'classes/iUser.php';
+require_once 'classes/User.php';
+
+$user = new User();
+$user->setName('anton');
+$user->setAge(35);
+echo $user->getName().' '.$user->getAge();
+ */
+
+//39
+/*
+require_once 'classes/iCube.php';
+require_once 'classes/Cube.php';
+
+$cube = new Cube(3);
+echo $cube->getVolume().' '.$cube->getSquare();
+
+require_once 'classes/iUser.php';
+require_once 'classes/User.php';
+
+$user = new User('anton', 35);
+
+echo 'pryvit '.$user->getName().' tobi '.$user->getAge().' rokiv!';
+ */
+
+//40
+//
+require_once 'classes/iUser.php';
+require_once 'classes/iEmployee.php';
+require_once 'classes/Employee.php';
+                                            $employee = new Employee();                 $employee->setName('anton');                $employee->setAge(35);
+$employee->setSalary(2500);
+                                            echo 'pracivnyk '.$employee->getName().' maje '.$employee->getAge().' i zarplatu '.$employee->getSalary();

@@ -102,7 +102,7 @@ class Employee extends User
 */
 
 //40
-//
+/*
 class Employee
 {
 	private $name;
@@ -139,3 +139,29 @@ class Employee
 		$this->salary = $salary;
 	}
 }
+ */
+
+//43
+//
+class Employee
+{
+	private $name;
+	private $salary;
+		
+	public function __construct($name, $salary)
+	{
+		$this->name = $name;
+		$this->salary = $salary;
+	}
+		
+	public function getName()
+	{
+		return $this->name;
+	}
+		
+	public function getSalary()
+	{
+		return $this->salary;
+	}
+}
+	

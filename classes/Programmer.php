@@ -1,6 +1,6 @@
 <?php
 // 19.3
-//
+/*
 require_once 'Employee.php';
 //require_once 'User.php';
 class Programmer extends Employee{
@@ -30,3 +30,21 @@ echo $programmer->getName().'<br>';
 echo $programmer->getAge().'<br>';
 echo $programmer->getSalary().'<br>';
 echo $programmer->getLang();
+ */
+
+//43
+//
+class Programmer extends Employee implements iProgrammer
+{
+	private $langs = [];
+
+	public function addLang($lang)
+	{
+		$this->langs[] = $lang;
+	}
+
+	public function getLangs()
+	{
+		return $this->langs;
+	}
+}

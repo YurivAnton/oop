@@ -237,7 +237,7 @@ echo 'pracivnyk '.$employee->getName().' maje '.$employee->getAge().' i zarplatu
 */
 
 //41
-//
+/*
 require_once 'classes/iFigure3d.php';
 require_once 'classes/iFigure.php';
 require_once 'classes/Cube.php';
@@ -278,3 +278,27 @@ foreach ($arr as $elem)
     }
 
 }
+*/
+
+//43
+//
+require_once 'classes/iProgrammer.php';
+require_once 'classes/Employee.php';
+require_once 'classes/Programmer.php';
+
+
+$programmer = new Programmer('anton', 3000);
+$programmer->addLang('php');
+$programmer->addLang('html');
+$langs = '';
+//$count = $programmer->getLangs();
+foreach ($programmer->getLangs() as $lang)
+{
+	$langs .= $lang;
+	if(count($programmer->getLangs()) >= 1)
+	{
+		$langs .= ', ';
+	}
+}
+echo 'programmer '.$programmer->getName().' zarplata '.$programmer->getSalary().' znaje movy: '.$langs;
+

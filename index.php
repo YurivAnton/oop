@@ -281,7 +281,7 @@ foreach ($arr as $elem)
 */
 
 //43
-//
+/*
 require_once 'classes/iProgrammer.php';
 require_once 'classes/Employee.php';
 require_once 'classes/Programmer.php';
@@ -291,14 +291,77 @@ $programmer = new Programmer('anton', 3000);
 $programmer->addLang('php');
 $programmer->addLang('html');
 $langs = '';
-//$count = $programmer->getLangs();
 foreach ($programmer->getLangs() as $lang)
 {
-	$langs .= $lang;
-	if(count($programmer->getLangs()) >= 1)
-	{
-		$langs .= ', ';
-	}
+	$langs .= $lang.' ';
 }
 echo 'programmer '.$programmer->getName().' zarplata '.$programmer->getSalary().' znaje movy: '.$langs;
+*/
 
+//44
+/*
+require_once 'classes/iSphere.php';
+require_once 'classes/Sphere.php';
+
+$sphere = new Sphere(10);
+echo $sphere->getVolume().' ';
+echo $sphere->getSquare();
+*/
+
+//46-47, 51
+/*
+require_once 'classes/Helper.php';
+require_once 'classes/Trait1.php';
+require_once 'classes/Trait2.php';
+require_once 'classes/Trait3.php';
+require_once 'classes/Country.php';
+
+$country = new Country('Bratislava', 1000, 500000);
+echo $country->getName().' '.$country->getAge().' '.$country->getPopulation().' ';
+
+require_once 'classes/Test.php';
+$test = new Test();
+echo $test->getSum();
+*/
+
+//53
+/*
+require_once 'classes/User.php';
+
+$user = new User('anton', 'yuriv', 'volod');
+echo $user;
+
+require_once 'classes/Arr.php';
+
+$arr = new Arr();
+echo $arr->add(1)->add(2)->add(3);
+*/
+
+//54
+/*
+require_once 'classes/User.php';
+
+$user = new User('anton', 35);
+echo $user->name.' ';
+echo $user->age;
+
+require_once 'classes/Date.php';
+
+$date = new Date();
+$date->day = '27';
+$date->month = '08';
+$date->year = '2021';
+
+echo $date->weekDay;
+*/
+
+//55
+//
+require_once 'classes/User.php';
+
+$user = new User();
+
+$user->name = 'anton';
+$user->age = 35;
+
+echo $user->name.' '.$user->age;

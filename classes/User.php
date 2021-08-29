@@ -181,7 +181,7 @@ class User implements iUser
  */
 
 //39
-//
+/*
 class User implements iUser
 {
 	private $name;
@@ -202,4 +202,79 @@ class User implements iUser
 	{
 		return $this->age;
 	}
+}
+*/
+
+//53
+/*
+class User
+{
+    private $name;
+    private $surname;
+    private $patronymic;
+
+    public function __construct($name, $surname, $patronymic)
+    {
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->patronymic = $patronymic;
+    }
+
+    public function __toString()
+    {
+        return $this->name.' '.$this->surname.' '.$this->patronymic;
+    }
+}
+*/
+
+//54
+/*
+class User
+{
+    private $name;
+    private $age;
+
+    public function __construct($name, $age)
+    {
+        $this->name = $name;
+        $this->age = $age;
+    }
+
+    public function __get($prop)
+    {
+        return $this->$prop;
+    }
+}
+*/
+
+//55
+//
+class User
+{
+    private $name;
+    private $age;
+
+    public function __get($prop)
+    {
+        return $this->$prop;
+    }
+
+    public function __set($prop, $value)
+    {
+        switch($prop) {
+            case 'name':
+                if ($value != '')
+                {
+                    $this->name = $value;
+                }
+            break;
+            case 'age':
+                if($value >= 0 and $value <= 70)
+                {
+                    $this->age = $value;
+                }
+            break;
+        }
+    }
+
 }

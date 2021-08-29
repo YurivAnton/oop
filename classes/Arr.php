@@ -41,7 +41,7 @@ echo (new Arr([1, 2, 3]))->getSum();
  */
 
 // 17.1 - 17.2
-//
+/*
 class Arr{
 	private $numbers = [];
 
@@ -66,3 +66,22 @@ class Arr{
 }
 
 echo (new Arr([5, 6]))->add(1)->uppend([2, 3])->add(4)->getSum();
+*/
+
+//53
+//
+class Arr
+{
+    private $numbers = [];
+
+    public function add($num)
+    {
+        $this->numbers[] = $num;
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) array_sum($this->numbers);
+    }
+}

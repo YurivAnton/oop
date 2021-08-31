@@ -356,7 +356,7 @@ echo $date->weekDay;
 */
 
 //55
-//
+/*
 require_once 'classes/User.php';
 
 $user = new User();
@@ -365,3 +365,16 @@ $user->name = 'anton';
 $user->age = 35;
 
 echo $user->name.' '.$user->age;
+ */
+
+//56
+//
+require_once 'classes/Date.php';
+
+$date = new Date('1986-07-03');
+
+echo $date->getDay().' ';
+echo $date->getMonth('en').' ';
+echo $date->getMonth('ua').' ';
+echo $date->getMonth().' ';
+echo $date->getYear().' ';

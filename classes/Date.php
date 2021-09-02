@@ -25,14 +25,18 @@ class Date
 	private $date;
 	
 	private $en = 
-		['month'=>['01'=>'january', '02'=>'february', '03'=>'march', '04'=>'april', '05'=>'may', '06'=>'june', '07'=>'july', '08'=>'august', '09'=>'september', '10'=>'october', '11'=>'november', '12'=>'december'], 
-		'day'=>[1=>'monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']];
+		[
+		    'month'=>['01'=>'january', '02'=>'february', '03'=>'march', '04'=>'april', '05'=>'may', '06'=>'june', '07'=>'july', '08'=>'august', '09'=>'september', '10'=>'october', '11'=>'november', '12'=>'december'],
+		    'day'=>[1=>'monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        ];
 	
 	private $ua = 
-		['month'=>['01'=>'січень', '02'=>'лютий', '03'=>'березень', '04'=>'квітень', '05'=>'травень', '06'=>'червень', '07'=>'липень', '08'=>'серпень', '09'=>'вересень', '10'=>'жовтень', '11'=>'листопад', '12'=>'грудень'], 
-		'day'=>[1=>'понеділок', 'вівторок', 'середа', 'четвер', 'пятниця', 'субота', 'неділя']];
+		[
+		    'month'=>['01'=>'січень', '02'=>'лютий', '03'=>'березень', '04'=>'квітень', '05'=>'травень', '06'=>'червень', '07'=>'липень', '08'=>'серпень', '09'=>'вересень', '10'=>'жовтень', '11'=>'листопад', '12'=>'грудень'],
+		    'day'=>[1=>'понеділок', 'вівторок', 'середа', 'четвер', 'пятниця', 'субота', 'неділя']
+        ];
 
-    	public function __construct($date = null)
+    public function __construct($date = null)
 	{
 		if($date == null)
 		{
@@ -40,95 +44,117 @@ class Date
 		} else {
 			$this->date = $date;
 		}	
-    	}
+    }
 
-    	public function getDay()
+    public function getDay()
 	{
 		$day = self::explodeDate();
 		return $day[2];
-    	}
+    }
 
-    	public function getMonth($lang = null)
+    public function getMonth($lang = null)
 	{
-	/*	$en = ['01'=>'january', '02'=>'february', '03'=>'march', '04'=>'april', '05'=>'may', '06'=>'june', '07'=>'july', '08'=>'august', '09'=>'september', '10'=>'october', '11'=>'november', '12'=>'december'];
-		
-	$ua = ['01'=>'січень', '02'=>'лютий', '03'=>'березень', '04'=>'квітень', '05'=>'травень', '06'=>'червень', '07'=>'липень', '08'=>'серпень', '09'=>'вересень', '10'=>'жовтень', '11'=>'листопад', '12'=>'грудень'];*/
-	
 		$month = self::explodeDate();
 		switch ($lang)
 		{
-		case 'en':
-			return $this->en['month'][$month[1]];
-		break;
-		case 'ua':
-			return $this->ua['month'][$month[1]];
-		break;
-		case null:
-			$month = self::explodeDate();
-			return $month[1];
-		break;
+            case 'en':
+                return $this->en['month'][$month[1]];
+            break;
+            case 'ua':
+                return $this->ua['month'][$month[1]];
+            break;
+            case null:
+                $month = self::explodeDate();
+                return $month[1];
+            break;
 		}
-    	}
+    }
 
-    	public function getYear()
-	{
-		$year = self::explodeDate();
-		return $year[0];
-    	}
+    public function getYear()
+    {
+        $year = self::explodeDate();
+        return $year[0];
+    }
 
-    	public function getWeekDay($lang = null)
-    	{
-		$weekDay = self::explodeDate();
-		switch ($lang
-        // возвращает день недели
-
-        // переменная $lang может принимать значение ru или en
-        // если эта не пуста - пусть месяц будет словом на заданном языке
-    	}
+    public function getWeekDay($lang = null)
+    {
+        $weekDay = self::explodeDate();
+        $day = date('w', strtotime($this->date));
+        switch ($lang)
+        {
+            case 'en':
+                return $this->en['day'][$day];
+            break;
+            case 'ua':
+                return $this->ua['day'][$day];
+            break;
+            case null :
+                return $day;
+        }
+    }
 
     public function addDay($value)
     {
-        // добавляет значение $value к дню
+        $date = date_create($this->date);
+        date_modify($date, "$value day");
+        $this->date = date_format($date, 'Y-m-d');
+        return $this;
     }
 
     public function subDay($value)
     {
-        // отнимает значение $value от дня
+        $date = date_create($this->date);
+        date_modify($date, "-$value day");
+        $this->date = date_format($date, 'Y-m-d');
+        return $this;
     }
 
     public function addMonth($value)
     {
-        // добавляет значение $value к месяцу
+        $date = date_create($this->date);
+        date_modify($date, "$value month");
+        $this->date = date_format($date, 'Y-m-d');
+        return $this;
     }
 
     public function subMonth($value)
     {
-        // отнимает значение $value от месяца
+        $date = date_create($this->date);
+        date_modify($date, "-$value month");
+        $this->date = date_format($date, 'Y-m-d');
+        return $this;
     }
 
     public function addYear($value)
     {
-        // добавляет значение $value к году
+        $date = date_create($this->date);
+        date_modify($date, "$value year");
+        $this->date = date_format($date, 'Y-m-d');
+        return $this;
     }
 
     public function subYear($value)
     {
-        // отнимает значение $value от года
+        $date = date_create($this->date);
+        date_modify($date, "-$value year");
+        $this->date = date_format($date, 'Y-m-d');
+        return $this;
     }
 
     public function format($format)
     {
-        // выведет дату в указанном формате
-        // формат пусть будет такой же, как в функции date
+        $date = date_create($this->date);
+        $this->date = date_format($date, $format);
+        return $this;
     }
 
     public function __toString()
     {
-        // выведет дату в формате 'год-месяц-день'
+        return $this->date;
     }
 
     private function explodeDate()
     {
-	    return explode('-',$this->date);
+        return explode('-',$this->date);
     }
 }

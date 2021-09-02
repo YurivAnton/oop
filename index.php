@@ -368,13 +368,92 @@ echo $user->name.' '.$user->age;
  */
 
 //56
-//
+/*
 require_once 'classes/Date.php';
 
-$date = new Date('1986-07-03');
+$date = new Date('2021-09-01');
 
 echo $date->getDay().' ';
 echo $date->getMonth('en').' ';
 echo $date->getMonth('ua').' ';
 echo $date->getMonth().' ';
 echo $date->getYear().' ';
+echo $date->getWeekDay('en').' ';
+echo $date->getWeekDay('ua').' ';
+echo $date->getWeekDay('').' ';
+echo '<br>';
+echo $date->addDay(5).' ';
+echo $date->subDay(4);
+echo '<br>';
+echo $date->addMonth(3).' ';
+echo $date->subMonth(1);
+echo '<br>';
+echo $date->addYear(5).' ';
+echo $date->subYear(4);
+echo '<br>';
+echo $date->format('y:m:d');
+*/
+
+//57
+/*
+require_once 'classes/Date.php';
+require_once 'classes/Interval.php';
+
+$date1 = new Date('2022-10-01');
+$date2 = new Date('2021-08-01');
+
+$interval = new Interval($date1, $date2);
+
+echo $interval->toDays().' ';
+echo $interval->toMonths().' ';
+echo $interval->toYears();
+*/
+
+//58
+/*
+require_once 'classes/iFile.php';
+require_once 'classes/File.php';
+
+$file = new File('test2/test1/TEST/test.txt');
+
+echo $file->getPath().'<br>';
+echo $file->getDir().'<br>';
+echo $file->getName().'<br>';
+echo $file->getExt().'<br>';
+echo $file->getSize().'<br>';
+echo $file->getText().'<br>';
+$file->setText('asdfsdf').'<br>';
+echo $file->getText().'<br>';
+$file->appendText('!!!').'<br>';
+echo $file->getText().'<br>';
+$file->copy('test2/test1/test.txt').'<br>';
+$file->delete('test2/test1/test.txt').'<br>';
+$file->rename('test.txt').'<br>';
+$file->replace('test2/test1/test.txt').'<br>';
+*/
+
+//59-63
+//
+require_once 'classes/Tag.php';
+
+$img = new Tag('img src=""');
+echo $img->open();
+$header = new Tag('header');
+echo $header->open().'header site'.$header->close();
+/*$tag = new Tag('input', ['id' => 'test', 'class' => 'eee bbb']);
+echo $tag->open();*/
+/*$tag = new Tag('input');
+echo $tag->setAttr('id', 'test')->setAttr('class', 'eee bbb')->removeAttr('id')->open();*/
+/*$tag = new Tag('input');
+
+echo $tag
+    ->setAttrs(['id' => 'test', 'class'
+    => 'eee'])
+    ->setAttr('type', 'text')
+    ->open();*/
+$tag = new Tag('input');
+
+echo $tag
+    ->setAttrs(['id'=>'test', 'disabled'=>true])
+    //->setAttr('disabled', true)
+    ->open();

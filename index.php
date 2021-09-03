@@ -433,7 +433,7 @@ $file->replace('test2/test1/test.txt').'<br>';
 */
 
 //59-63
-//
+/*
 require_once 'classes/Tag.php';
 
 $img = new Tag('img src=""');
@@ -450,10 +450,18 @@ echo $tag
     ->setAttrs(['id' => 'test', 'class'
     => 'eee'])
     ->setAttr('type', 'text')
-    ->open();*/
+    ->open();
 $tag = new Tag('input');
 
 echo $tag
     ->setAttrs(['id'=>'test', 'disabled'=>true])
     //->setAttr('disabled', true)
     ->open();
+ */
+
+//64
+//
+require_once 'classes/Tag.php';
+
+echo (new Tag('input'))->setAttr('name', 'name1')->open();
+echo (new Tag('input'))->setAttr('name', 'name2')->open();

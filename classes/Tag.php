@@ -51,6 +51,15 @@ class Tag
         return "</$name>";
     }
 
+    public function addClass($className)
+    {
+	    if(isset $this->attrs['class']
+	    {
+		    $classNames = explode(' ', $this->attrs['class'];
+
+	    }
+    }
+
     private function getAttrsStr($attrs)
     {
         if (!empty($attrs))

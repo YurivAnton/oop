@@ -459,9 +459,30 @@ echo $tag
     ->open();
  */
 
-//64
-//
+//64-67
+/*
+require_once 'classes/iTag.php';
 require_once 'classes/Tag.php';
 
 echo (new Tag('input'))->setAttr('name', 'name1')->open();
 echo (new Tag('input'))->setAttr('name', 'name2')->open();
+echo (new Tag('input'))->addClass('eee')->open();
+echo (new Tag('input'))->addClass('eee')->addClass('bbb')->open();
+echo (new Tag('input'))->setAttr('class', 'eee bbb')->addClass('kkk')->open();
+echo (new Tag('input'))->setAttr('class', 'eee bbb')->addClass('eee')->open();
+echo (new Tag('input'))->addClass('eee')->addClass('bbb')->addClass('eee')->open();
+echo (new Tag('input'))->setAttr('class', 'eee zzz kkk')->removeClass('zzz')->open();
+echo (new Tag('input'))->setAttrs(['id'=>'test', 'disabled'=>true])
+    //->setAttr('disabled', true)
+    ->open();
+*/
+
+//68
+//
+require_once 'classes/iTag.php';
+require_once 'classes/Tag.php';
+require_once 'classes/Image.php';
+
+echo (new Image())->setAttr('src', '17-53-39.png')->setAttr('width', 300)
+    ->setAttr('height', 200)->open();
+echo (new Image())->setAttr('src', '17-53-39.png');

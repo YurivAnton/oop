@@ -478,11 +478,81 @@ echo (new Tag('input'))->setAttrs(['id'=>'test', 'disabled'=>true])
 */
 
 //68
-//
+/*
 require_once 'classes/iTag.php';
 require_once 'classes/Tag.php';
 require_once 'classes/Image.php';
 
 echo (new Image())->setAttr('src', '17-53-39.png')->setAttr('width', 300)
     ->setAttr('height', 200)->open();
-echo (new Image())->setAttr('src', '17-53-39.png');
+echo (new Image())->setAttr('src', '17-53-39.png')->setAttr('width', 300)
+    ->setAttr('height', 200);
+*/
+
+//69
+/*
+require_once 'classes/iTag.php';
+require_once 'classes/Tag.php';
+require_once 'classes/Link.php';
+
+echo (new Link())->setAttr('href', '/index.php')->setText('index')->show();
+echo '<br>';
+for($i=1; $i<=5; $i++)
+{
+    echo (new Link())->setAttr('href', "/$i.php")->setText("page $i")->show().' ';
+}
+*/
+
+//70
+/*
+require_once 'classes/iTag.php';
+require_once 'classes/Tag.php';
+require_once 'classes/ListItem.php';
+require_once 'classes/HtmlList.php';
+require_once 'classes/Ul.php';
+require_once 'classes/Ol.php';
+
+$list = new HtmlList('ul');
+
+echo $list->addItem((new ListItem())->setText('item1'))
+        ->addItem((new ListItem())->setText('item2'))
+        ->addItem((new ListItem())->setText('item3'));
+echo '<br>';
+
+$ul = new Ul();
+echo $ul->addItem((new ListItem())->setText('item1'))
+    ->addItem((new ListItem())->setText('item2'))
+    ->addItem((new ListItem())->setText('item3'));
+echo '<br>';
+
+$ol = new Ol();
+echo $ol->addItem((new ListItem())->setText('item1'))
+    ->addItem((new ListItem())->setText('item2'))
+    ->addItem((new ListItem())->setText('item3'));
+*/
+
+//71
+/*
+require_once 'classes/iTag.php';
+require_once 'classes/Tag.php';
+require_once 'classes/Form.php';
+
+$form = (new Form())->setAttrs(['action'=>'test.php', 'method'=>'POST']);
+echo $form->open();
+echo $form->close();
+*/
+
+//72
+//
+require_once 'classes/iTag.php';
+require_once 'classes/Tag.php';
+require_once 'classes/Form.php';
+require_once 'classes/Input.php';
+
+$form = (new Form)->setAttrs(['action'
+=> '', 'method' => 'GET']);
+
+echo $form->open();
+echo (new Input)->setAttr('name', 'year');
+echo (new Input)->setAttr('type', 'submit');
+echo $form->close();

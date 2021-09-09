@@ -542,17 +542,82 @@ echo $form->open();
 echo $form->close();
 */
 
-//72
-//
+//72-74
+ 
 require_once 'classes/iTag.php';
 require_once 'classes/Tag.php';
 require_once 'classes/Form.php';
 require_once 'classes/Input.php';
+require_once 'classes/Password.php';
+require_once 'classes/Submit.php';
+require_once 'classes/Textarea.php';
+require_once 'classes/Hidden.php';
 
 $form = (new Form)->setAttrs(['action'
 => '', 'method' => 'GET']);
 
 echo $form->open();
 echo (new Input)->setAttr('name', 'year');
+echo (new Password())->setAttr('name', 'pass');
 echo (new Input)->setAttr('type', 'submit');
+echo $form->close();
+
+echo '<br><br>';
+
+$form = (new Form)->setAttrs(['action' => '', 'method'=> 'GET']);
+echo $form->open();
+echo (new Input)->setAttr('name', 'year')->setAttr('value', date('Y'));
+echo (new Input)->setAttr('type', 'submit');
+echo $form->close();
+
+echo '<br><br>';
+
+$form4 = (new Form())->setAttrs(['action'=>'', 'method'=>'POST']);
+
+echo $form4->open();
+for ($i=1; $i<=5; $i++)
+{
+	echo (new Input())->setAttr('name', "num$i").'<br>';
+}
+echo (new Input())->setAttr('type', 'submit');
+echo $form4->close();
+
+$sum = 0;
+
+for ($i=1; $i<=5; $i++)
+{
+	if (!empty($_REQUEST["num$i"]))
+	{
+		$sum += $_REQUEST["num$i"];
+	}
+}
+if ($sum != 0)
+{
+	echo $sum;
+}
+
+echo '<br><br>';
+ 
+$form73 = (new Form())->setAttrs(['action'=>'', 'method'=>'GET']);
+echo $form73->open();
+echo (new Input())->setAttr('name', 'anton');
+echo new Submit();
+echo $form->close();
+
+echo '<br><br>';
+
+$form76 = (new Form())->setAttrs(['action'=>'', 'method'=>'GET']);
+echo $form76->open();
+echo (new Input())->setAttr('name', 'name');
+echo (new Textarea())->setAttr('name', 'message')->setText('asd');
+echo new Submit();
+echo $form76->close();
+
+echo '<br><br>';
+
+$form75 = (new Form())->setAttrs(['action'=>'', 'method'=>'GET']);
+echo $form->open();
+echo (new Input())->setAttr('name', 'name');
+echo (new Hidden())->setAttrs(['name'=>'id', 'value'=>'1']);
+echo new Submit();
 echo $form->close();

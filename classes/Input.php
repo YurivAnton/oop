@@ -17,7 +17,6 @@ class Input extends Tag
 		    {
 			    $value = $_REQUEST[$inputName];
 			    $this->setAttr('value', $value);
-
 		    }
 	    }
 	    return parent::open();

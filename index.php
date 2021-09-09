@@ -543,7 +543,7 @@ echo $form->close();
 */
 
 //72-74
- 
+/*
 require_once 'classes/iTag.php';
 require_once 'classes/Tag.php';
 require_once 'classes/Form.php';
@@ -608,8 +608,8 @@ echo '<br><br>';
 
 $form76 = (new Form())->setAttrs(['action'=>'', 'method'=>'GET']);
 echo $form76->open();
-echo (new Input())->setAttr('name', 'name');
-echo (new Textarea())->setAttr('name', 'message')->setText('asd');
+echo (new Input())->setAttr('name', 'user');
+echo (new Textarea())->setAttr('name', 'message');
 echo new Submit();
 echo $form76->close();
 
@@ -617,7 +617,26 @@ echo '<br><br>';
 
 $form75 = (new Form())->setAttrs(['action'=>'', 'method'=>'GET']);
 echo $form->open();
-echo (new Input())->setAttr('name', 'name');
+echo (new Input())->setAttr('user', 'name');
 echo (new Hidden())->setAttrs(['name'=>'id', 'value'=>'1']);
 echo new Submit();
 echo $form->close();
+*/
+
+//77
+//
+require_once 'classes/iTag.php';
+require_once 'classes/Tag.php';
+require_once 'classes/Form.php';
+require_once 'classes/Input.php';
+require_once 'classes/Hidden.php';
+require_once 'classes/Checkbox.php';
+require_once 'classes/Submit.php';
+
+$form77 = (new Form())->setAttrs(['action'=>'', 'method'=>'GET']);
+
+echo $form77->open();
+echo (new Input())->setAttr('name', 'user');
+echo (new Checkbox())->setAttr('name', 'checkbox');
+echo new Submit();
+echo $form77->close();
